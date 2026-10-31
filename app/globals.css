@@ -1,0 +1,181 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+body {
+  background: #000;
+  color: #f4f4f5;
+}
+::selection {
+  background: #8b5cf6;
+  color: #fff;
+}
+.rv {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+.rv.in {
+  opacity: 1;
+  transform: none;
+}
+.hero-in {
+  animation: up 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+@keyframes up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rv,
+  .hero-in {
+    animation: none;
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+:focus-visible {
+  outline: 2px solid #a78bfa;
+  outline-offset: 2px;
+}
+.card {
+  @apply rounded-xl border border-white/10 p-6 transition-colors hover:border-accent/60;
+}
+.chip {
+  @apply rounded-md border border-white/10 px-2.5 py-1 text-xs text-zinc-300;
+}
+.btn {
+  @apply inline-flex items-center rounded-full px-5 py-2.5 text-sm font-medium transition;
+}
+.btn-p {
+  @apply inline-flex items-center rounded-full px-5 py-2.5 text-sm font-medium transition;
+  background-color: #8b5cf6;
+  color: #ffffff;
+}
+
+.btn-p:hover {
+  background-color: #a78bfa;
+}
+.btn-o {
+  @apply border border-white/20 text-white hover:border-accent hover:text-violet-300;
+}
+.inp {
+  @apply w-full rounded-lg border border-white/15 bg-black px-3 py-2 text-sm text-white placeholder:text-zinc-600 focus:border-accent focus:outline-none;
+}
+
+.skill-card {
+  @apply relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-zinc-950 via-zinc-950 to-violet-950/30 p-6 transition duration-300 hover:-translate-y-1 hover:border-violet-500/50 hover:shadow-[0_12px_45px_rgba(124,58,237,0.12)];
+}
+.skill-icon {
+  @apply flex h-10 w-10 items-center justify-center rounded-xl border border-violet-400/20 bg-violet-500/10 text-xl text-violet-300;
+}
+.skill-chip {
+  @apply rounded-lg border border-white/10 bg-white/[0.035] px-3 py-1.5 text-xs font-medium text-zinc-300 transition hover:border-violet-400/40 hover:bg-violet-500/10 hover:text-violet-200;
+}
+
+/* Theme switch: the portfolio opens in dark mode and remembers the visitor's choice. */
+.theme-toggle {
+  display: inline-flex;
+  flex: 0 0 auto;
+  width: 36px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #ddd6fe;
+  font-size: 20px;
+  transition: all 0.2s;
+}
+.theme-toggle:hover {
+  border-color: #a78bfa;
+  background: rgba(139, 92, 246, 0.16);
+}
+html[data-theme="light"] body {
+  background: #faf9ff;
+  color: #181825;
+}
+html[data-theme="light"] header {
+  background: rgba(250, 249, 255, 0.88);
+  border-color: rgba(24, 24, 37, 0.1);
+}
+html[data-theme="light"] .text-zinc-300 {
+  color: #3f3f50;
+}
+html[data-theme="light"] .text-zinc-400 {
+  color: #555568;
+}
+html[data-theme="light"] .text-zinc-500 {
+  color: #717184;
+}
+html[data-theme="light"] .text-white {
+  color: #191827;
+}
+html[data-theme="light"] .border-white\/10 {
+  border-color: rgba(24, 24, 37, 0.12);
+}
+html[data-theme="light"] .border-white\/15 {
+  border-color: rgba(24, 24, 37, 0.18);
+}
+html[data-theme="light"] .bg-black {
+  background: #fff;
+}
+html[data-theme="light"] .card {
+  background: #fff;
+  border-color: rgba(24, 24, 37, 0.12);
+  box-shadow: 0 8px 28px rgba(47, 35, 84, 0.045);
+}
+html[data-theme="light"] .skill-card {
+  background: linear-gradient(135deg, #fff, #f4efff);
+  border-color: rgba(124, 58, 237, 0.16);
+}
+html[data-theme="light"] .skill-chip,
+html[data-theme="light"] .chip {
+  background: #f4f1fb;
+  border-color: rgba(24, 24, 37, 0.1);
+  color: #49445b;
+}
+html[data-theme="light"] .btn-o {
+  color: #34245a;
+  border-color: rgba(52, 36, 90, 0.25);
+}
+html[data-theme="light"] .inp {
+  background: #fff;
+  color: #191827;
+  border-color: rgba(24, 24, 37, 0.2);
+}
+html[data-theme="light"] .theme-toggle {
+  color: #5b21b6;
+  border-color: rgba(91, 33, 182, 0.25);
+  background: #f0eaff;
+}
+html[data-theme="light"] .hero-in .text-zinc-400 {
+  color: #555568;
+}
+html[data-theme="light"] .rv {
+  color: #191827;
+}
+html[data-theme="light"] footer {
+  border-color: rgba(24, 24, 37, 0.12);
+}
+
+html[data-theme="light"] .btn-p,
+html[data-theme="light"] .btn-p.text-white {
+  color: #ffffff !important;
+}
